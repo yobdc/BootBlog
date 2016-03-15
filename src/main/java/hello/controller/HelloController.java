@@ -13,6 +13,6 @@ public class HelloController {
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     @ResponseBody
     public String hello() {
-        return "Greetings from Spring Boot!";
+        return "Greetings from Spring Boot!!";
     }
 }
