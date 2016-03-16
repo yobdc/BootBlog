@@ -28,12 +28,14 @@ public class JpaConfig {
     private String username;
     @Value("${spring.datasource.password}")
     private String password;
-    @Value("${spring.hibernate.ddl-auto")
+    @Value("${spring.hibernate.ddl-auto}")
     private String hibernateDdlAuto;
-    @Value("${spring.hibernate.dialect")
+    @Value("${spring.hibernate.dialect}")
     private String hibernateDialect;
-    @Value("${spring.hibernate.show_sql")
+    @Value("${spring.hibernate.show_sql}")
     private Boolean showSql;
+    @Value("${spring.hibernate.packages_to_scan}")
+    private String packagesToScan;
 
     @Bean
     public DataSource dataSource() {
@@ -50,7 +52,7 @@ public class JpaConfig {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManagerFactoryBean.setPackagesToScan("showcase");
+        entityManagerFactoryBean.setPackagesToScan(packagesToScan);
 
         Properties jpaProperties = new Properties();
 

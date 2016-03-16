@@ -10,4 +10,5 @@ spring:
     hibernate:
         ddl-auto: update
         dialect: org.hibernate.dialect.MySQLDialect
-        show_sql: false
+        show_sql: true
+        packages_to_scan: hello
