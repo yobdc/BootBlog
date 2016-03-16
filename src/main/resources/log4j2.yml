@@ -8,9 +8,10 @@ Configutation:
             PatternLayout:
                 Pattern: "%d{ISO8601} %-5p [%c{3}] [%t] %m%n"
         RollingFile:
-            - name: APPLICATION
-                fileName: ../logs/my-app.log
-                filePattern: "../logs/$${date:yyyy-MM}/my-app-%d{yyyy-MM-dd}-%i.log.gz"
+            -
+                name: APPLICATION
+                fileName: ../my-app.log
+                filePattern: "$${date:yyyy-MM}/my-app-%d{yyyy-MM-dd}-%i.log.gz"
                 PatternLayout:
                     Pattern: "%d{ISO8601} %-5p [%c{3}] [%t] %m%n"
                 policies:
@@ -25,13 +26,8 @@ Configutation:
                 - ref: CONSOLE
                 - ref: APPLICATION
         Logger:
-            - name: hello.controller
-                additivity: false
-                level: debug
-                AppenderRef:
-                    - ref: CONSOLE
-                    - ref: APPLICATION
-            - name: hello
+            -
+                name: hello
                 additivity: false
                 level: debug
                 AppenderRef:

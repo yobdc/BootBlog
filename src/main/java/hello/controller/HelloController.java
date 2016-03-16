@@ -1,7 +1,7 @@
 package hello.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +15,7 @@ import java.util.Map;
  */
 @RestController
 public class HelloController {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LogManager.getLogger(this.getClass());
 
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     @ResponseBody
